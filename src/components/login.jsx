@@ -1,15 +1,30 @@
 // Login.jsx
 
+import axios from "axios";
 import React, { useState } from "react";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     // Perform login logic or send a request to your server
+    let url = `http://localhost:8080/users?email=${email}`;
+    const response = await axios.get(url)
+    if(response.data==""){
+      console.log("user not found");
+    }
+    else{
+      if(response.data[0].password==password){
+        console.log("matched");
+      }
+      else{
+        console.log("not matched");
+      }
+    }
+    
 
     setEmail("");
     setPassword("");

@@ -1,5 +1,6 @@
 // SignUp.jsx
 
+import axios from "axios";
 import React, { useState } from "react";
 
 const SignUp = () => {
@@ -7,7 +8,7 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {console.log(response);
     e.preventDefault();
 
     if (password !== confirmPassword) {
@@ -17,6 +18,15 @@ const SignUp = () => {
 
     // Perform signup logic or send a request to your server
 
+    let url = "http://localhost:8080/users";
+    const response = await axios.post(url,{
+      "email":email,
+      "password":password
+    })
+
+    console.log(response);
+
+
     setEmail("");
     setPassword("");
     setConfirmPassword("");
@@ -25,7 +35,7 @@ const SignUp = () => {
   return (
     <div>
       <h2>Sign Up</h2>
-      <form onSubmit={handleSubmit}>
+      <form className="signupform" onSubmit={handleSubmit}>
         <div>
           <label>Email:</label>
           <input
