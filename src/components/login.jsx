@@ -14,14 +14,14 @@ const Login = () => {
     let url = `http://localhost:8080/users?email=${email}`;
     const response = await axios.get(url)
     if(response.data==""){
-      console.log("user not found");
+      alert("user not found");
     }
     else{
       if(response.data[0].password==password){
-        console.log("matched");
+        alert("matched");
       }
       else{
-        console.log("not matched");
+        alert("password not matched");
       }
     }
     
