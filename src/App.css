@@ -1,0 +1,16 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.btn{
+  height: 50px;
+  width: 250px;
+  background-color:white;
+  color: red;
+  font-size: larger;
+  padding: 10px;
+  margin: 50px;
+}
