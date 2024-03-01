@@ -15,7 +15,7 @@
   margin: 50px;
 }
 
-.signupform {
+.signupform, .loginpage, .addtocard{
   background-color: black;
   margin:50px;
   padding: 50px;
@@ -25,3 +25,4 @@ div .signupform div label input{
   margin: 50px;
   padding: 50px;
 }
+

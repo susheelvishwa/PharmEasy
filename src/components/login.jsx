@@ -10,21 +10,18 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Perform login logic or send a request to your server
     let url = `http://localhost:8080/users?email=${email}`;
-    const response = await axios.get(url)
-    if(response.data==""){
+    const response = await axios.get(url);
+    if (response.data == "") {
+      console.log(response);
       alert("user not found");
-    }
-    else{
-      if(response.data[0].password==password){
-        alert("matched");
-      }
-      else{
+    } else {
+      if (response.data[0].password == password) {
+        alert("Succesfully logged in");
+      } else {
         alert("password not matched");
       }
     }
-    
 
     setEmail("");
     setPassword("");
@@ -33,7 +30,7 @@ const Login = () => {
   return (
     <div>
       <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
+      <form className="loginpage" onSubmit={handleSubmit}>
         <div>
           <label>Email:</label>
           <input
